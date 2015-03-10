@@ -1,0 +1,60 @@
+<div class="col-md-9">	
+  <div class="form-horizontal panel panel-default">
+   <div class="panel-heading">
+    <h3 class="panel-title">Mantenimiento Curso - Docente</h3>     
+    </div>    
+      <div class="panel-body">        
+        <div class="form-group">
+          <label for="State" class="col-sm-2 control-label">Periodo</label>
+          <div class="form-group col-sm-10">
+          <input type="hidden" id="idperiodo" name="idperiodo"/>
+            <input type="text" class="form-control" id="Periodo" name="Periodo" style="width: 200px" disabled="" /> 
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Nuevo</button>   
+          </div>
+        </div> 
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Carrera</label>
+          <div class="col1 col-sm-10">
+            <input id="Carrera" name="Carrera" onchange="ListarCursoCarrera();" style="width: 400px" /> 
+          </div>             
+        </div> 
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Cursos de la Carrera </h3>
+          </div>
+            <div id="tayta" class='list-group'>
+            </div>
+        </div>     
+      </div>  
+    </div>  
+  </div>
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nuevo Periodo</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" onsubmit="return false;">
+              <div class="panel panel-default">
+               <div class="panel-heading">
+                <h3 class="panel-title">Nuevo Periodo</h3>     
+               </div>    
+                <div class="panel-body">        
+                  <div class="form-group">
+                    <label for="State" class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-10">
+                      <input id="Nombre" name="Nombre" style="width: 400px"/>    
+                    </div>
+                  </div>  
+                </div>  
+              </div>
+            </form> 
+        </div>  
+       
+      </div>
+    </div>
+  </div>
+</div>

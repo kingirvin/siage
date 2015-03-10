@@ -1,0 +1,19 @@
+.home-page section {
+	background: #f5f5f5;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+.home-page h1.section-heading {
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 2;
+	margin-top: 0;
+	color: #2f506c;
+}
+.text-highlight {
+	color: #27435a;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'open sans', arial, sans-serif;
+	font-weight: 300;
+}

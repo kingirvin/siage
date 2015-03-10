@@ -1,0 +1,103 @@
+<div class="col-md-9">
+  <form class="form-horizontal" onsubmit="return false;">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <h3 class="panel-title">Registrar Curso</h3>    
+      <button type="button" class="btn btn-default pull-right" style="margin-top: -25px;" data-toggle="modal" data-target="#myModal">Nuevo</button> 
+     </div>    
+      <div class="panel-body">        
+        <div class="form-group">
+          <label for="State" class="col-sm-2 control-label">Carrera</label>
+          <div class="col-sm-10">
+            <input id="Carrera" name="Carrera" style="width: 400px"/>   
+          </div>
+        </div> 
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Modulo</label>
+          <div class="col1 col-sm-10">
+            <input id="Modulo" name="Modulo" style="width: 400px" />        
+          </div>             
+        </div> 
+        <div class="form-group">
+          <label for="State" class="col-sm-2 control-label">Ciclo</label>
+          <div class="col-sm-10">
+            <input id="Ciclo" name="Ciclo" style="width: 400px"/>    
+          </div>
+        </div> 
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Cursos</label>
+          <div class="col1 col-sm-10">
+            <input id="Cursos" name="Cursos" style="width: 400px" />       
+          </div>             
+        </div>            
+      </div> 
+      <div class="panel-footer" style="overflow:hidden;text-align:right;">
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" onclick="RegistrarCursoCliclo();">Guardar</button> 
+            <button type="submit" class="btn btn-danger">Cancelar</button> 
+          </div>             
+        </div>  
+      </div> 
+    </div>
+  </form> 
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" onsubmit="return false;">
+              <div class="panel panel-default">
+               <div class="panel-heading">
+                <h3 class="panel-title">Nuevo Curso</h3>     
+               </div>    
+                <div class="panel-body">        
+                  <div class="form-group">
+                    <label for="State" class="col-sm-2 control-label">Area</label>
+                    <div class="col-sm-10">
+                      <input id="Area" name="Area" style="width: 400px"/>    
+                    </div>
+                  </div> 
+                  <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Nombre</label>
+                    <div class="col1 col-sm-10">
+                      <input id="Nombre" class="form-control" name="Nombre" style="width: 400px" />        
+                    </div>             
+                  </div> 
+                  <div class="form-group">
+                    <label for="State" class="col-sm-2 control-label">Descripcion</label>
+                    <div class="col-sm-10">
+                      <input id="Descripcion" class="form-control" name="Descripcion" style="width: 400px"/>    
+                    </div>
+                  </div> 
+                  <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Horas</label>
+                    <div class="col1 col-sm-10">
+                      <input id="Horas" class="form-control" name="Horas" style="width: 400px" />                      
+                    </div>             
+                  </div> 
+                  <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Creditos</label>
+                    <div class="col1 col-sm-10">
+                      <input id="Creditos" class="form-control" name="Creditos" style="width: 400px" />                      
+                    </div>             
+                  </div> 
+                </div>  
+              </div>
+            </form> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="RegistrarCurso();">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="carga">  
+
+  </div>
+</div>

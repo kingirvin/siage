@@ -1,0 +1,68 @@
+<div class="col-md-9">
+ <form enctype="multipart/form-data" class="form-horizontal" id="formulario" onsubmit="guardar(this);return false;">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <h3 class="panel-title">Datos Personales</h3>     
+     </div>    
+      <div class="panel-body">          
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">DNI</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="DNI" name="DNI"
+             placeholder="DNI"required onblur="ValidadDNI();">
+          </div>             
+        </div>  
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Nombre</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Nombre" name="Nombre"
+             placeholder="Nombre"required>
+          </div>
+        </div>  
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Apellido</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Apellido" name="Apellido"
+             placeholder="Apellido"required>
+          </div>
+        </div>  
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Direccion</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Direccion" name="Direccion"
+             placeholder="Direccion"required>
+          </div>
+        </div>  
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Telefono</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Telefono" name="Telefono"
+             placeholder="Telefono">
+          </div>
+        </div>  
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="Email" class="form-control" id="Email" name="Email"
+             placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Especialidad</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Especialidad" name="Especialidad"
+             placeholder="Especialidad"required>
+          </div>             
+        </div>  
+      </div>  
+    </div>    
+    <div class="panel-footer" style="overflow:hidden;text-align:right;">
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" name="submit" class="boton boton btn btn-lg btn-primary btn-block" value="Registrar">
+          <input type="submit" name="submit" class="boton boton btn btn-lg btn-primary btn-block" value="Cancelar">
+        </div>             
+      </div>  
+    </div>         
+  </form>
+</div>

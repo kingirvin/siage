@@ -1,0 +1,21 @@
+<div class="col-md-9">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Matricula</h3>    
+		</div>    
+		<div class="panel-body"> 			
+			<form enctype="multipart/form-data" class="form-inline" id="formulario" onsubmit="return false;"> 
+				<div class="form-group">
+				    <label for="CodigoDNI">Codigo</label>
+				    <input type="text" class="form-control" id="CodigoDNI" name="CodigoDNI" placeholder="Codigo o DNI">
+				</div>
+				<button type="submit" class="btn btn-primary" onclick="BuscarEstudiante();">Buscar</button> 
+			</form>	
+			<form enctype="multipart/form-data" class="form-inline" onsubmit="return false;"> 
+				<div id="Matricula"></div>
+				<div id="Periodo"></div>
+				<div id="Cursos"></div>
+			</form>
+		</div>
+	</div>
+</div>

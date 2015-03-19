@@ -41,7 +41,6 @@ function comboCarrera ()
                 read: {
 
                     url: "/siage/Recursos/Datos.php?Modulo=Carrera&Accion=Listar&Pagina=0&Size=100",
-, 
                 }
 
             },
@@ -141,7 +140,6 @@ function comboCiclo()
                 read: {
 
                     url: "/siage/Recursos/Datos.php?Modulo=Carrera&Accion=ListarCiclo&Pagina=0&Size=100",
-
                 }
 
             },

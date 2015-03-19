@@ -7,6 +7,7 @@
     header("Content-type: application/json");
     $Metodo = $_SERVER["REQUEST_METHOD"];
     $postss=$_POST;
+    //print_r($postss);
     $postss['Imagenes'] = SubirFiles($postss, $_FILES);
     RegistrarData($postss,$_REQUEST["Modulo"], $_REQUEST["Accion"]);
     function SubirFiles($data=array(), $files = array())

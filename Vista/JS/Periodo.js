@@ -1,10 +1,18 @@
 $(document).ready(function(){
 
     comboCarrera(); 
-
-    UltimoPeriodo();     
+    comboDocente();
+    UltimoPeriodo();
+    h();
 
 });
+function h() 
+{ 
+  var myBookId = $(this).data('id');
+
+  var myBookId = $(this).data('id'); $(".modal-body #DNI").val( myBookId );
+}
+
 
 function comboCarrera ()
 
@@ -45,7 +53,6 @@ function comboCarrera ()
             {
 
               data: "data",//lo que  esta definido detro de data:{} solo los datos
-
               total: "total"//los que esta ddefinido en total: es la cantidad de elementos devueltos                   
 
             }
@@ -57,10 +64,9 @@ function comboCarrera ()
 }
 
 function comboDocente ()
-
 {    
 
-    $(".Docente").kendoComboBox({
+    $("#Docente").kendoComboBox({
 
         placeholder: "Seleccione Docente",
 
@@ -243,61 +249,14 @@ function ListarCursoCarrera()
           lista.empty();
 
           for (var dato in data["data"]) {  
-
-              lista.append("<form enctype='multipart/form-data' onsubmit='AgregarCursoCarga(this);return false;'>"+
-
-                            "<div class='list-group-item'>"+
-
+              lista.append("<div class='list-group-item'>"+
                               "<div>"+data["data"][dato]["Nombre"]+""+
-
-                                "<span class='pull-right'>"+
-
-                                  "<button class='btn btn-xs btn-info' onclick='SeleccionarProfeta(this);'><span class='glyphicon glyphicon-pencil'></span></button>"+
-
+                                "<span class='pull-right'>"+                                  
+                                  "<a data-toggle='modal' data-id='777777777' title='Add this item' class='open-Modal btn btn-primary'  href='javascript:void(0);' onclick='MostrarDocente("+data["data"][dato]["idCarga"]+","+data["data"][dato]["idCurso_Semestre"]+");'>test</a>"+
                                 "</span>"+
-
-                                "<input type='hidden' name='idCarga' value='"+data["data"][dato]["idCarga"]+"'>"+
-
-                                "<input type='hidden' name='idCurso_Semestre' value='"+data["data"][dato]["idCurso_Semestre"]+"'>"+
-
-                              "</div>"+
-
-                              "<div class='panel panel-info select_teach' style='display: none; margin-top: 15px;'>"+
-
-                                "<div class='panel-heading'><strong>AGREGAR DOCENTE</strong>"+
-
-                                "<div class='pull-right'><button class='close miniclose' onclick='OcultarSelect(this);'>x</button></div></div>"+
-
-                                "<div class='panel-body'>"+
-
-                                  "<div class='btn-group'>"+
-
-                                    "<div class='form-group'>"+
-
-                                      "<label for='State' class='col-sm-2 control-label'>Docente</label>"+
-
-                                      "<div class='col-sm-11'>"+
-
-                                        "<input  class='Docente' name='Docente' style='width: 400px'/>"+
-                                        "<button type='submit' class='btn btn-theme'>AGREGAR</button>"+
-
-                                      "</div>"+
-
-                                    "</div>"+                                    
-
-                                  "</div>"+
-
-                                "</div>"+
-
-                              "</div>"+
-
-                            "</div></form>");                    
-
-
-
-          };
-
-          comboDocente();                    
+                            "</div>"+
+                            "</div>");
+          };         
 
       },
 
@@ -312,27 +271,53 @@ function ListarCursoCarrera()
     });     
 
 }
-
-function AgregarCursoCarga(sd)
+function MostrarDocente(a,b)
 {
-  var formdata=new FormData(sd);
-  $.ajax({
-      url: "/siage/Recursos/DatosFormulario.php?Modulo=Carga&Accion=RegistrarCursoCarga&Pagina=0&Size=100",
+  VerificarDocenteCurso(a,b);
+  document.getElementById("idCarga").value=a;
+  document.getElementById("idCursoSemestre").value=b;
+  $('#myModalDoc').modal('toggle')  
+}
+function VerificarDocenteCurso(a,b)
+{   
+    var dataString={idCarga:a,
+                    idCurso_Semestre:b};
+      $.ajax({
       type: "POST",
-      data: formdata,
-      async:false,
-      success: function (result) 
-      {              
-      //alert(result.responseText);
+      url: "/siage/Recursos/Datos.php?Modulo=Persona&Accion=ListarDocenteCursoCarga&Pagina=0&Size=100",
+      data: dataString,
+      cache:false,
+      success: function (data) 
+      { 
+         document.getElementById("nombreDocente").innerHTML="Docente : " +data["data"][0]["nombre"];
       },
-      error: function(result) {       
+      error: function(result) {  
+     alert(result.responseText);     
       },
-        cache: false,
-        contentType: false,
-        processData: false
-        });
-  /*
-  alert(document.getElementsByName("Docente_input").value);
+    });
+       
+    
+}
+function AgregarCursoCarga(sd)
+{      
+   var formdata=new FormData(sd);        
+          $.ajax({
+              url: "/siage/Recursos/DatosFormulario.php?Modulo=Carga&Accion=RegistrarCursoCarga&Pagina=0&Size=100",
+              type: "POST",
+              data: formdata,
+              async:false,
+              success: function (result) 
+              {              
+              alert(result.responseText);
+              },
+              error: function(result) {       
+                alert(result.responseText);
+              },
+                cache: false,
+                contentType: false,
+                processData: false
+                });  
+ /* alert(document.getElementsByName("Docente_input").value);
 
    var dataString = {
 
@@ -381,17 +366,16 @@ function MostrarTodos() {
 function OcultarTodos() {
 
     $("#tayta").children().children(".select_teach").hide("fast");
+    document.getElementById("dato").value=0;
 
 }
 
 
 
-function SeleccionarProfeta (item) {
+function SeleccionarProfeta (item,sd) {
 
-    var listaitem = $(item).parent().parent().parent();  
-
-    $(listaitem).children('.select_teach').show("fast");     
-
+    var listaitem = $(item).parent().parent().parent();
+    $(listaitem).children('.select_teach').show("fast");       
 }
 
 function OcultarSelect (item) {

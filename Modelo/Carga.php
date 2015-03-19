@@ -26,9 +26,16 @@ class ModeloCarga extends ModeloBase
 	public function RegistrarCursoCarga($vars)
 	{		
 		$this->consulta = "INSERT INTO tcurso_carga(idCarga,idDocente,idCurso_Semestre) 
-						values(".$vars['idCarga'].",".$vars['Docente'].",".$vars['idCurso_Semestre'].");";						
+						values(".$vars['idCarga'].",".$vars['Docente'].",".$vars['idCursoSemestre'].");";						
 		$this->Ejecutar();
 	}	
+	public function ListarDocenteCursoCarga($vars)
+	{
+		$this->consulta="spVerificarDocenteCarga(".$vars['idCarga'].",".$vars['idCurso_Semestre'].");";
+		$this->Consultar();	
+		//echo $this->consulta;
+		return $this->rows;	
+	}
 	function __destruct() 
 	{  
 	    unset($this);

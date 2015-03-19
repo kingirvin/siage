@@ -1,5 +1,6 @@
 function BuscarEstudiante() {
 
+  var cod=document.getElementById("CodigoDNI").value;
 	var dataString={DNI:document.getElementById("CodigoDNI").value};   
 
   $.ajax({
@@ -126,13 +127,13 @@ function BuscarEstudiante() {
 
             htmlt+="<input type='hidden' id='idCarrera' name='idCarrera' value='"+data["data"][0]["idCarrera"]+"'>";     	
 
-            BuscarMatriculaEstudiante(data["data"][0]["idCiclo"]);
+            VerificarMatricula(data["data"][0]["idCiclo"],cod);
 
           htmlt+="</tbody></table>";
 
           $("#Matricula").html(htmlt);
 
-          buscarPeriodo();
+         //buscarPeriodo();
 
       },
 
@@ -144,7 +145,43 @@ function BuscarEstudiante() {
 
 }
 
+function VerificarMatricula(argument,sd) 
+{
+  //alert(sd);
+      var dataString={DNI:sd};
 
+    $.ajax({
+
+      type: "POST",
+
+      url: "/siage/Recursos/Datos.php?Modulo=Matricula&Accion=VerificarMatricula&Pagina=0&Size=100",
+
+      data: dataString,
+
+      cache:false,
+
+      success: function (data) 
+      {  
+       // alert(data['total']);
+        if (data['total']>0) 
+          {
+             htmlt="";
+            $("#Cursos").html(htmlt); 
+            htmlt="<label for='name' class='col-sm-2 control-label'> Semestre : ALUMNO MATRICULADO</label>";
+            $("#Periodo").html(htmlt);            
+          }
+        else
+          { 
+            buscarPeriodo();           
+            BuscarMatriculaEstudiante(argument);
+            
+          }
+      },
+      error: function(result) 
+      {        
+      }
+  });
+}
 
 function BuscarMatriculaEstudiante(sd) { 
 
